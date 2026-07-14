@@ -46,7 +46,11 @@ app.*.map.json
 
 #other
 /helper
+/CLAUDE.md
+/INTERVIEW_NOTES.md
 .env
 *.secret
 local.properties
 key.properties
+*.keystore
+*.jks
