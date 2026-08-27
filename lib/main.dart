@@ -38,6 +38,66 @@ class MyHomePage extends StatelessWidget {
                 children: [Text(title), const Icon(Icons.dark_mode_outlined)],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surfaceContainer,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Today ${DateTime.now()}"),
+                    const SizedBox(height: 8),
+                    const Text("4 out of 9"),
+                    const SizedBox(height: 12),
+                    LinearProgressIndicator(
+                      value: 4 / 9,
+                      minHeight: 8,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      'A steady rhythm, not a race — every day starts fresh.',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(20, 8, 20, 10),
+              child: Text(
+                'AFTER WAKING',
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+            ),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surfaceContainer,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 28,
+                    height: 28,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Theme.of(context).colorScheme.outline,
+                      )
+                    ),
+                  ),
+                  const SizedBox(width: 14,),
+                  const Expanded(child: Text('Wake with gratitude'))
+                ],
+              ),
+            ),)
           ],
         ),
       ),
