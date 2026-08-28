@@ -82,6 +82,7 @@ class MyHomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     width: 28,
@@ -94,12 +95,55 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 14,),
-                  const Expanded(child: Text('Wake with gratitude'))
+                  Expanded(child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Wake with gratitude'),
+                      const SizedBox(height: 6,),
+                      Text(
+                        'Recall Allah before rising and begin day with intention.',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const SizedBox(height: 8,),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.circular(8)
+                        ),
+                        child: Text(
+                          'Established Sunnah',
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                      )
+                    ],
+                  ))
                 ],
               ),
             ),)
           ],
         ),
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: 0,
+        destinations: [
+          NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home),
+              label: 'Today'
+          ),
+          NavigationDestination(
+              icon: Icon(Icons.bar_chart_outlined),
+              label: 'Progress'
+          ),
+          NavigationDestination(
+              icon: Icon(Icons.settings_outlined),
+              label: 'Settings'
+          ),
+        ],
       ),
     );
   }
