@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sunnah_life_style/widgets/routine_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,26 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<({String title, String description, String badgeLevel})>
+    routines = [
+      (
+        title: 'Wake with gratitude',
+        description:
+            'Recall Allah before rising and begin the day with intention.',
+        badgeLevel: 'Established Sunnah',
+      ),
+      (
+        title: 'Pray Tahajjud',
+        description: 'Pray to Allah and ask for anything',
+        badgeLevel: 'Established Sunnah',
+      ),
+      (
+        title: 'Pray Fajr',
+        description: 'Start the day with mandatory Morning Prayer.',
+        badgeLevel: 'Obligatory Act/Prayer',
+      ),
+    ];
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -68,62 +89,22 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Padding(
-                padding: const EdgeInsets.fromLTRB(20, 8, 20, 10),
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 10),
               child: Text(
                 'AFTER WAKING',
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
-            Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surfaceContainer,
-                borderRadius: BorderRadius.circular(16),
+            ...routines.map(
+              (routine) => Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: RoutineCard(
+                  title: routine.title,
+                  description: routine.description,
+                  badgeLevel: routine.badgeLevel,
+                ),
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 28,
-                    height: 28,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Theme.of(context).colorScheme.outline,
-                      )
-                    ),
-                  ),
-                  const SizedBox(width: 14,),
-                  Expanded(child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Wake with gratitude'),
-                      const SizedBox(height: 6,),
-                      Text(
-                        'Recall Allah before rising and begin day with intention.',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      const SizedBox(height: 8,),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primaryContainer,
-                          borderRadius: BorderRadius.circular(8)
-                        ),
-                        child: Text(
-                          'Established Sunnah',
-                          style: Theme.of(context).textTheme.labelSmall,
-                        ),
-                      )
-                    ],
-                  ))
-                ],
-              ),
-            ),)
+            ),
           ],
         ),
       ),
@@ -131,17 +112,17 @@ class MyHomePage extends StatelessWidget {
         selectedIndex: 0,
         destinations: [
           NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: 'Today'
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: 'Today',
           ),
           NavigationDestination(
-              icon: Icon(Icons.bar_chart_outlined),
-              label: 'Progress'
+            icon: Icon(Icons.bar_chart_outlined),
+            label: 'Progress',
           ),
           NavigationDestination(
-              icon: Icon(Icons.settings_outlined),
-              label: 'Settings'
+            icon: Icon(Icons.settings_outlined),
+            label: 'Settings',
           ),
         ],
       ),

@@ -453,6 +453,18 @@ Then return to the current lesson.
 
 ## End-of-lesson format
 
+### Lesson transitions
+
+- A lesson is still in progress while the learner has an implementation task
+  to complete or code awaiting review.
+- Mark a lesson complete only after the learner has implemented the task, the
+  code has been reviewed, and the lesson's acceptance criteria are satisfied.
+- When that happens, explicitly tell the learner that the current lesson has
+  ended.
+- Do not begin the next lesson in the current chat. Open a new Codex chat for
+  the next lesson, give it a clear title such as `Flutter Course — Lesson 4:
+  Lists`, and continue the course there.
+
 At the end of a lesson or review, use this compact structure:
 
 ### What you learned
