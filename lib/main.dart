@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sunnah_life_style/pages/routine_detail_page.dart';
 import 'package:sunnah_life_style/widgets/routine_card.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Sunnah LifeStyle',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFFC67139),
+          seedColor: const Color(0xFFC67139),
           primary: const Color(0xFFC67139),
           surface: const Color(0xFFF5EAD8),
           surfaceContainer: const Color(0xFFebddc5),
@@ -94,9 +95,9 @@ class MyHomePage extends StatelessWidget {
                     const SizedBox(height: 12),
                     Text(
                       'A steady rhythm, not a race — every day starts fresh.',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontSize: 11
-                      ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodySmall?.copyWith(fontSize: 11),
                     ),
                   ],
                 ),
@@ -112,10 +113,24 @@ class MyHomePage extends StatelessWidget {
             ...routines.map(
               (routine) => Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-                child: RoutineCard(
-                  title: routine.title,
-                  description: routine.description,
-                  badgeLevel: routine.badgeLevel,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (routineContext) => RoutineDetailPage(
+                          title: routine.title,
+                          description: routine.description,
+                          badgeLevel: routine.badgeLevel,
+                        ),
+                      ),
+                    );
+                  },
+                  child: RoutineCard(
+                    title: routine.title,
+                    description: routine.description,
+                    badgeLevel: routine.badgeLevel,
+                  ),
                 ),
               ),
             ),
