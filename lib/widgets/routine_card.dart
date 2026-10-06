@@ -36,7 +36,7 @@ class RoutineCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title),
+                Text(title, style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 6),
                 Text(description, style: Theme.of(context).textTheme.bodySmall),
                 const SizedBox(height: 8),

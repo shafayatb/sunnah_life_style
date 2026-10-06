@@ -14,7 +14,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sunnah LifeStyle',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFFC67139),
+          primary: const Color(0xFFC67139),
+          surface: const Color(0xFFF5EAD8),
+          surfaceContainer: const Color(0xFFebddc5),
+          onSurface: const Color(0xFF201e1d),
+        ),
+        scaffoldBackgroundColor: const Color(0xFFF5EAD8),
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(fontSize: 15),
+          bodySmall: TextStyle(fontSize: 13),
+          labelSmall: TextStyle(fontSize: 11),
+        ),
       ),
       home: const MyHomePage(title: 'Sunnah LifeStyle'),
     );
@@ -82,7 +94,9 @@ class MyHomePage extends StatelessWidget {
                     const SizedBox(height: 12),
                     Text(
                       'A steady rhythm, not a race — every day starts fresh.',
-                      style: Theme.of(context).textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        fontSize: 11
+                      ),
                     ),
                   ],
                 ),
